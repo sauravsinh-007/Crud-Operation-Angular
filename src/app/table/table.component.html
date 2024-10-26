@@ -1,0 +1,48 @@
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th> 
+                <th>Full Name</th>
+                <th>Mobile Number</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Status</th>
+                <th>Education Qualification</th>
+                <th>Stream of Education</th>
+                <th>Tenth Percentage</th>
+                <th>Twelfth Percentage</th>
+                <th>Highest Graduation Percentage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.fullName }}</td>
+                <td>{{ item.mobileNumber }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.dob }}</td>
+                <td>{{ item.gender }}</td>
+                <td>{{ item.city }}</td>
+                <td>{{ item.status }}</td>
+                <td>{{ item.educationQualification }}</td>
+                <td>{{ item.streamOfEducation }}</td>
+                <td>{{ item.tenthPercentage }}</td>
+                <td>{{ item.twelfthPercentage }}</td>
+                <td>{{ item.highestGraduationPercentage }}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm me-2" (click)="onEdit(item)">
+                        <i class="bi bi-pencil-fill"></i> Update
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="onDelete(item)">
+                        <i class="bi bi-trash-fill"></i> Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

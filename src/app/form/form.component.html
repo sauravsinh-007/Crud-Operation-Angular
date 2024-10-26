@@ -1,0 +1,198 @@
+<div class=" about">
+    <div *ngIf="isCrudForm">
+        <h3 class="title mt-3">About Me</h3>
+        <div class="form mt-5">
+            <form [formGroup]="crudForm">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" class="form-control rounded-lg" formControlName="fullName"
+                            placeholder="Full name" required>
+                        <div *ngIf="crudForm.get('fullName')?.invalid && crudForm.get('fullName')?.touched"
+                            class="text-danger">
+                            <span *ngIf="crudForm.get('fullName')?.errors?.['required']">Full Name is required.</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <label for="mobileNumber">Mobile Number</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <select class="form-control rounded-lg" formControlName="countryCode"
+                                    style="max-width: 125px;">
+                                    <option value="+91">+91 (India)</option>
+                                    <option value="+1">+1 (USA)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+61">+61 (Australia)</option>
+                                </select>
+                            </div>
+                            <input type="tel" class="form-control rounded-lg" id="mobileNumber"
+                                placeholder="Mobile number" formControlName="mobileNumber" required>
+                            <div *ngIf="crudForm.get('mobileNumber')?.invalid && crudForm.get('mobileNumber')?.touched"
+                                class="text-danger">
+                                <span *ngIf="crudForm.get('mobileNumber')?.errors?.['required']">Mobile Number is
+                                    required.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control rounded-lg" formControlName="email"
+                            placeholder="Email ID" required>
+                        <div *ngIf="crudForm.get('email')?.invalid && crudForm.get('email')?.touched"
+                            class="text-danger">
+                            <span *ngIf="crudForm.get('email')?.errors?.['required']">Email is required.</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" class="form-control rounded-lg" formControlName="dob" required>
+                        <div *ngIf="crudForm.get('dob')?.invalid && crudForm.get('dob')?.touched" class="text-danger">
+                            <span *ngIf="crudForm.get('dob')?.errors?.['required']">Date of Birth is required.</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <label>Gender</label>
+                        <div>
+                            <label class="mr-2">
+                                <input type="radio" name="gender" formControlName="gender" value="male"
+                                    class="large-radio">
+                                Male
+                            </label>
+                            <label class="mr-2">
+                                <input type="radio" name="gender" formControlName="gender" value="female"
+                                    class="large-radio"> Female
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" formControlName="gender" value="other"
+                                    class="large-radio"> Other
+                            </label>
+                        </div>
+                        <div *ngIf="crudForm.get('gender')?.invalid && crudForm.get('gender')?.touched"
+                            class="text-danger">
+                            <span>Gender is Required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <label for="city">City/Town</label>
+                        <input type="text" formControlName="city" class="form-control rounded-lg"
+                            placeholder="City name" required>
+                        <div *ngIf="crudForm.get('city')?.invalid && crudForm.get('city')?.touched" class="text-danger">
+                            <span *ngIf="crudForm.get('city')?.errors?.['required']">City is required.</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <label for="status">Current Status</label>
+                        <select class="form-control rounded-lg" id="status" formControlName="status" required>
+                            <option value="" disabled selected>Select your status</option>
+                            <option value="enrolled">Student</option>
+                            <option value="employed">Employed</option>
+                            <option value="unemployed">Unemployed</option>
+                        </select>
+                        <div *ngIf="crudForm.get('status')?.invalid && crudForm.get('status')?.touched"
+                            class="text-danger">
+                            <span>Status is required.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="career">
+                    <div>
+                        <h3 class="title mt-5">Academic & Career Summary</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3 mb-3">
+                            <label for="educationQualification">Educational Qualification</label>
+                            <select class="form-control rounded-lg" formControlName="educationQualification" required>
+                                <option value="" disabled selected>Select Educational Qualification</option>
+                                <option value="high-school">High School Diploma</option>
+                                <option value="bachelor-degree">Bachelor's Degree</option>
+                                <option value="master-degree">Master's Degree</option>
+                                <option value="phd">PhD</option>
+                            </select>
+                            <div *ngIf="crudForm.get('educationQualification')?.invalid && crudForm.get('educationQualification')?.touched"
+                                class="text-danger">
+                                <span>Educational Qualification is required.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 mb-3">
+                            <label for="streamOfEducation">Stream of Education</label>
+                            <select class="form-control rounded-lg" formControlName="streamOfEducation" required>
+                                <option value="" disabled selected>Stream of Education</option>
+                                <option value="science">Science</option>
+                                <option value="arts">Arts</option>
+                                <option value="commerce">Commerce</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="medicine">Medicine</option>
+                                <option value="computer-science">Computer Science</option>
+                                <option value="social-sciences">Social Sciences</option>
+                                <option value="business">Business Administration</option>
+                            </select>
+                            <div *ngIf="crudForm.get('streamOfEducation')?.invalid && crudForm.get('streamOfEducation')?.touched"
+                                class="text-danger">
+                                <span>Stream of Education is required.</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3 mb-3">
+                            <label for="tenthPercentage">10th Percentage</label>
+                            <input type="number" class="form-control rounded-lg" formControlName="tenthPercentage"
+                                id="tenthPercentage" placeholder="10th Percentage" required>
+                            <div *ngIf="crudForm.get('tenthPercentage')?.invalid && crudForm.get('tenthPercentage')?.touched"
+                                class="text-danger">
+                                <span *ngIf="crudForm.get('tenthPercentage')?.errors?.['required']">10th Percentage is
+                                    required.</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3 mb-3">
+                            <label for="twelfthPercentage">12th Percentage</label>
+                            <input type="number" class="form-control rounded-lg" id="twelfthPercentage"
+                                placeholder="12th Percentage" formControlName="twelfthPercentage" required>
+                            <div *ngIf="crudForm.get('twelfthPercentage')?.invalid && crudForm.get('twelfthPercentage')?.touched"
+                                class="text-danger">
+                                <span *ngIf="crudForm.get('twelfthPercentage')?.errors?.['required']">12th Percentage is
+                                    required.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <label for="highestGraduationPercentage">Highest Graduation Percentage <span
+                                class="text-muted">(optional if graduated)</span></label>
+                        <input type="number" class="form-control rounded-lg"
+                            formControlName="highestGraduationPercentage" id="highestGraduationPercentage"
+                            placeholder="Highest Graduation Percentage">
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <button type="submit" class="btn btn-primary rounded-lg" (click)="onSubmit()">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="mt-5">
+    <app-table [data]="submitData" (editFromData)="editFromData($event)" (isFromTrue)="isFromTrue($event)"></app-table>
+</div>
